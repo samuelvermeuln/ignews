@@ -19,17 +19,22 @@ export default NextAuth({
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
 
-      console.log("EMAIL =>> ", email);
-      
-      // FQL cheat sheet => e a forma de inserir no banco
-      await fauna.query(
-        q.Create(
-          q.Collection('user'),
-          {data: {email}}
-        )
-      )
+      try {
 
-      return true
+        // FQL cheat sheet => e a forma de inserir no banco
+        
+        await fauna.query(
+        q.Create(
+          q.Collection("users"),
+          { data: { email } }));
+
+        return true
+        
+      } catch (erro) {
+        console.log(erro);
+
+        return false
+     }
     },
   }
 });
