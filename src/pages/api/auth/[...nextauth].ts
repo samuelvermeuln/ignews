@@ -17,12 +17,14 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    async signIn({ user, account, profile, email, credentials }) {
+    async signIn({ user, account, profile, credentials }) {
+
+      const { email } = user
 
       try {
 
         // FQL cheat sheet => e a forma de inserir no banco
-        
+
         await fauna.query(
         q.Create(
           q.Collection("users"),
@@ -31,8 +33,7 @@ export default NextAuth({
         return true
         
       } catch (erro) {
-        console.log(erro);
-
+        console.log("error no signIn");
         return false
      }
     },
