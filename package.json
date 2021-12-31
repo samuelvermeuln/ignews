@@ -3,10 +3,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run build",
+    "build": "next build",
     "start": "next start -p $PORT",
-    "heroku-postbuild": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@stripe/stripe-js": "^1.22.0",
