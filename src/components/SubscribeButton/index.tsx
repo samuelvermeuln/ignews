@@ -44,12 +44,14 @@ export function SubscriberButton({ priceId }: SubscriberButtonProps) {
   }
 
   return (
-    <button
-      type="button"
-      className={styles.subscriberButton}
-      onClick={handleSubscripe}
-    >
-      Subscribe now
-    </button>
+    <>
+      <button
+        type="button"
+        className={styles.subscriberButton}
+        onClick={handleSubscripe}
+      >
+        {!!session ? "Subscribe now" : "Fazer login"}
+      </button>
+    </>
   );
 }

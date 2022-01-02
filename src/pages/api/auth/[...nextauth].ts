@@ -4,6 +4,7 @@ import GithubProvider from "next-auth/providers/github";
 import { query as q } from 'faunadb'
 import { fauna } from '../../../services/fauna';
 
+
 export default NextAuth({
   providers: [
     GithubProvider({
@@ -55,5 +56,6 @@ export default NextAuth({
         return false
      }
     },
-  }
+  },
+  
 });

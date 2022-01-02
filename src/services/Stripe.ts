@@ -8,5 +8,5 @@ export const stripe = new Stripe(
             name: 'Ignews',
             version: '0.1.0'
         },
-    }
+    }    
 );
